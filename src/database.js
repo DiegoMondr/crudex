@@ -1,12 +1,12 @@
 const mysql = require ('mysql');
 const { promisify } = require ('util');
-
 const {database} = require ('./keys');
 
 
 
 const pool = mysql.createPool(database);
 
+//Intenta establecer la conexion a la base de datos
 pool.getConnection((err, connection) => {
     if(err){
         if(err.code === 'PROTOCOL_CONNECTION_LOST'){
