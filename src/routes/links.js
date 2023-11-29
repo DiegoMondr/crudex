@@ -21,6 +21,14 @@ router.post('/add', async (req,res) => {
 
 
     res.send('recibido');
-})
+});
+
+
+router.get('/', async (req, res) => {
+    const links = await pool.query('SELECT * FROM links');
+    console.log(links);
+    res.render('links/list',{links});
+});
+
 
 module.exports = router;
